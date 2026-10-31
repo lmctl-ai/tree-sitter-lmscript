@@ -210,8 +210,9 @@ module.exports = grammar({
 
     parenthesized: $ => seq('(', $._expression, ')'),
 
-    tuple_expression: $ => seq(
-      '(', $._expression, ',', commaSep1($._expression), optional(','), ')',
+    tuple_expression: $ => choice(
+      seq('(', ')'),
+      seq('(', $._expression, ',', optional(seq(commaSep1($._expression), optional(','))), ')'),
     ),
 
     assignment_expression: $ => prec.right(1, seq(

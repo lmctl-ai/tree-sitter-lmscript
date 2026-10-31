@@ -6,7 +6,7 @@ run yet. A clean tree never authorizes execution.
 | Input class | Grammar versus checker | Reason |
 | --- | --- | --- |
 | Planned load_schema clauses and block handle/out expression | Grammar accepts; pinned runtime lacks the descriptor intrinsic | Upcoming accepted syntax, marked planned in README |
-| Undefined names, missing modules, arity/types, duplicate recover labels, recover in loops | Grammar accepts syntax; checker may reject | No name resolution, effects or types in an analysis grammar |
+| Undefined names, missing modules, import/package placement, arity/types, duplicate recover labels, recover in loops | Grammar accepts syntax; checker may reject | No name resolution, effects or types in an analysis grammar |
 | Computed/duplicate block options, malformed data bodies, invalid outer splices | Opaque content accepted; checker validates | Body-language validation is not outer syntax |
 | Keyword-adjacent strings such as return"x" and some reserved bindings | Contextual grammar can accept; lexer/checker may reject | S3 must enumerate these cases; analysis tokens remain queryable |
 | String escape values, assignments in formatted fields | Delimiters/expressions checked, not scalar ranges or purity | Semantic validation belongs to the real checker |

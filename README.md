@@ -18,7 +18,7 @@ export TREE_SITTER=/tmp/lmscript-tree-sitter/node_modules/.bin/tree-sitter
 npm test
 ```
 
-The gate generates the parser, runs 38 Tree-sitter corpus cases and contract
+The gate generates the parser, runs 39 Tree-sitter corpus cases and contract
 checks, checks the conformance harness with failing controls, parses the public
 corpus without ERROR/MISSING, and catches three production-copy mutants.
 Actions runs these suites on Ubuntu/macOS and checks generated-file freshness.

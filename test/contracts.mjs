@@ -35,3 +35,4 @@ test('backslash does not hide formatted field',()=>{for(const prefix of ['f','rf
 test('mismatched closer before matching closer refuses',()=>{const r=parse('x = _csv_;\na,b\nend _json_\nend _csv_\n');assert.notEqual(r.status,0,r.stdout);});
 test('multiline splice string protects outer closer',()=>{const r=parse('x = _json_;\n${"""\nend _json_\n"""}\nend _json_\n');assert.equal(r.status,0,r.stdout);});
 for(const source of ['system echo "$HOME";','system echo "`date`";'])test('quoted shell expansion refused '+source,()=>{assert.notEqual(parse(source).status,0);});
+test('empty and singleton tuples match the hand parser',()=>{const r=parse('x = (); y = (1,); z = (1,2,);');assert.equal(r.status,0,r.stdout);});
