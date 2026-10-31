@@ -1,0 +1,819 @@
+==================
+assignments
+==================
+x = 1; let y = .5; const z = "value";
+
+---
+
+(source_file
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (number)))
+  (let_statement
+    (identifier)
+    (number))
+  (let_statement
+    (identifier)
+    (plain_string)))
+
+==================
+arithmetic
+==================
+x = (1+2)*3%2; ok = !false && true || x>=0; y = ok ? 1 : 2;
+
+---
+
+(source_file
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (binary_expression
+        (binary_expression
+          (parenthesized
+            (binary_expression
+              (number)
+              (number)))
+          (number))
+        (number))))
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (binary_expression
+        (binary_expression
+          (unary_expression
+            (false))
+          (true))
+        (binary_expression
+          (identifier)
+          (number)))))
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (ternary_expression
+        (identifier)
+        (number)
+        (number)))))
+
+==================
+list and map
+==================
+x = [1,true,null]; y = {name:"ok", "key": x[0]}; y.name = "new";
+
+---
+
+(source_file
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (list_literal
+        (number)
+        (true)
+        (null))))
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (map_literal
+        (map_pair
+          (identifier)
+          (plain_string))
+        (map_pair
+          (plain_string)
+          (index_expression
+            (identifier)
+            (number))))))
+  (expression_statement
+    (assignment_expression
+      (member_expression
+        (identifier)
+        (identifier))
+      (plain_string))))
+
+==================
+tuples
+==================
+a = (1,2); (x,y) = a; let [p,q] = a;
+
+---
+
+(source_file
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (tuple_expression
+        (number)
+        (number))))
+  (destruct_statement
+    (identifier)
+    (identifier)
+    (identifier))
+  (destruct_statement
+    (identifier)
+    (identifier)
+    (identifier)))
+
+==================
+functions
+==================
+fn f(x,y) { return x+y; } function g() { return; } f(1,2);
+
+---
+
+(source_file
+  (function_declaration
+    (identifier)
+    (parameter_list
+      (identifier)
+      (identifier))
+    (block
+      (return_statement
+        (binary_expression
+          (identifier)
+          (identifier)))))
+  (function_declaration
+    (identifier)
+    (parameter_list)
+    (block
+      (return_statement)))
+  (expression_statement
+    (call_expression
+      (identifier)
+      (argument_list
+        (number)
+        (number)))))
+
+==================
+branches
+==================
+if (x) { x = 1; } else if (y) { x = 2; } else { x = 3; }
+
+---
+
+(source_file
+  (if_statement
+    (identifier)
+    (block
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (number))))
+    (identifier)
+    (block
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (number))))
+    (block
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (number))))))
+
+==================
+loops
+==================
+for (let i=0;i<3;i=i+1) { continue; } while (true) { break; } for (v in items) { print(v); }
+
+---
+
+(source_file
+  (for_statement
+    (identifier)
+    (number)
+    (binary_expression
+      (identifier)
+      (number))
+    (assignment_expression
+      (identifier)
+      (binary_expression
+        (identifier)
+        (number)))
+    (block
+      (continue_statement)))
+  (while_statement
+    (true)
+    (block
+      (break_statement)))
+  (for_statement
+    (identifier)
+    (identifier)
+    (block
+      (expression_statement
+        (call_expression
+          (identifier)
+          (argument_list
+            (identifier)))))))
+
+==================
+sync
+==================
+sync x = 1; sync data.key = 2; sync push(items,1);
+
+---
+
+(source_file
+  (sync_statement
+    (identifier)
+    (number))
+  (sync_statement
+    (member_expression
+      (identifier)
+      (identifier))
+    (number))
+  (sync_statement
+    (call_expression
+      (identifier)
+      (argument_list
+        (identifier)
+        (number)))))
+
+==================
+imports
+==================
+import "lib.lms"; import "native:git" as g; package library;
+
+---
+
+(source_file
+  (import_statement
+    (plain_string))
+  (import_statement
+    (plain_string)
+    (identifier))
+  (package_statement
+    (identifier)))
+
+==================
+comments
+==================
+# one
+// two
+/* three */
+x = 1;
+
+---
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (number))))
+
+==================
+quoted strings
+==================
+x = "a\n\"b"; y = 'c\t';
+
+---
+
+(source_file
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (plain_string)))
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (plain_string))))
+
+==================
+raw and paths
+==================
+x = r"a\n"; y = R'path'; z = path"/tmp/file";
+
+---
+
+(source_file
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (raw_string)))
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (raw_string)))
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (path_literal))))
+
+==================
+plain triple
+==================
+x = """a
+{literal}
+""";
+
+---
+
+(source_file
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (triple_string))))
+
+==================
+raw triple
+==================
+x = r"""{literal}\n""";
+
+---
+
+(source_file
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (raw_triple_string))))
+
+==================
+fstrings
+==================
+x = f"{{value}}={f(1)}"; y = f'hi {name}';
+
+---
+
+(source_file
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (fstring
+        (fstring_field
+          (call_expression
+            (identifier)
+            (argument_list
+              (number)))))))
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (fstring
+        (fstring_field
+          (identifier))))))
+
+==================
+formatted triple
+==================
+x = f"""hi {name}
+{{literal}}""";
+
+---
+
+(source_file
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (fstring_triple
+        (fstring_field
+          (identifier))))))
+
+==================
+recover
+==================
+recover { resumepoint first: x = 1; resumepoint next: recover { resumepoint nested: print(RESUMEPOINT); } }
+
+---
+
+(source_file
+  (recover_block
+    (resumepoint
+      (identifier)
+      (expression_statement
+        (assignment_expression
+          (identifier)
+          (number))))
+    (resumepoint
+      (identifier)
+      (recover_block
+        (resumepoint
+          (identifier)
+          (expression_statement
+            (call_expression
+              (identifier)
+              (argument_list
+                (identifier)))))))))
+
+==================
+command bare
+==================
+system echo hello; cmd git status --short;
+
+---
+
+(source_file
+  (command)
+  (command))
+
+==================
+command quotes
+==================
+x = cmd echo 'a # b' "hello ${name}";
+
+---
+
+(source_file
+  (assignment_command_statement
+    (identifier)
+    (command
+      (command_squote)
+      (command_dquote
+        (command_field
+          (identifier))))))
+
+==================
+command field splice
+==================
+system ${argv} --value=${map.key};
+
+---
+
+(source_file
+  (command
+    (command_field
+      (identifier))
+    (member_expression
+      (identifier)
+      (identifier))))
+
+==================
+system call
+==================
+x = system(["echo","ok"],{check:true});
+
+---
+
+(source_file
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (system_call
+        (list_literal
+          (plain_string)
+          (plain_string))
+        (map_literal
+          (map_pair
+            (identifier)
+            (true)))))))
+
+==================
+empty block
+==================
+x = _json_;
+end _json_
+
+
+---
+
+(source_file
+  (data_block_statement
+    (assignment_expression
+      (identifier)
+      (marker_expression
+        (block_marker)))
+    (block_closer)))
+
+==================
+csv block
+==================
+x = _csv_ header=true;
+a,b
+1,2
+end _csv_
+
+
+---
+
+(source_file
+  (data_block_statement
+    (assignment_expression
+      (identifier)
+      (marker_expression
+        (block_marker)
+        (block_option
+          (identifier)
+          (true))))
+    (data_body)
+    (block_closer)))
+
+==================
+toml block
+==================
+x = _toml_;
+[section]
+a=1
+end _toml_
+
+
+---
+
+(source_file
+  (data_block_statement
+    (assignment_expression
+      (identifier)
+      (marker_expression
+        (block_marker)))
+    (data_body)
+    (block_closer)))
+
+==================
+props block
+==================
+x = _props_;
+a=b
+end _props_
+
+
+---
+
+(source_file
+  (data_block_statement
+    (assignment_expression
+      (identifier)
+      (marker_expression
+        (block_marker)))
+    (data_body)
+    (block_closer)))
+
+==================
+json block
+==================
+x = _json_;
+{"a":1}
+end _json_
+
+
+---
+
+(source_file
+  (data_block_statement
+    (assignment_expression
+      (identifier)
+      (marker_expression
+        (block_marker)))
+    (data_body)
+    (block_closer)))
+
+==================
+graphql block
+==================
+x = _graphql_;
+query { user { name } }
+end _graphql_
+
+
+---
+
+(source_file
+  (data_block_statement
+    (assignment_expression
+      (identifier)
+      (marker_expression
+        (block_marker)))
+    (data_body)
+    (block_closer)))
+
+==================
+command block
+==================
+system(_cmd_);
+echo "hi"
+end _cmd_
+
+
+---
+
+(source_file
+  (data_block_statement
+    (system_call
+      (marker_expression
+        (block_marker)))
+    (data_body)
+    (block_closer)))
+
+==================
+queued blocks
+==================
+x = merge(_csv_, _json_);
+a,b
+end _csv_
+{}
+end _json_
+
+
+---
+
+(source_file
+  (data_block_statement
+    (assignment_expression
+      (identifier)
+      (call_expression
+        (identifier)
+        (argument_list
+          (marker_expression
+            (block_marker))
+          (marker_expression
+            (block_marker)))))
+    (data_body)
+    (block_closer)
+    (data_body)
+    (block_closer)))
+
+==================
+lmcode injection
+==================
+x = _lmcode_ schema="host.json";
+$return.a = 1;
+end _lmcode_
+
+
+---
+
+(source_file
+  (data_block_statement
+    (assignment_expression
+      (identifier)
+      (marker_expression
+        (block_marker)
+        (block_option
+          (identifier)
+          (plain_string))))
+    (lmcode_body)
+    (block_closer)))
+
+==================
+legacy injection
+==================
+x = _dsl_ cli="tool";
+let a = 1;
+end _dsl_
+
+
+---
+
+(source_file
+  (data_block_statement
+    (assignment_expression
+      (identifier)
+      (marker_expression
+        (block_marker)
+        (block_option
+          (identifier)
+          (plain_string))))
+    (lmcode_body)
+    (block_closer)))
+
+==================
+heredoc closer text
+==================
+x = _lmcode_ schema="host.json";
+let x = <<A;
+end _lmcode_
+A
+end _lmcode_
+
+
+---
+
+(source_file
+  (data_block_statement
+    (assignment_expression
+      (identifier)
+      (marker_expression
+        (block_marker)
+        (block_option
+          (identifier)
+          (plain_string))))
+    (lmcode_body)
+    (block_closer)))
+
+==================
+queued heredocs
+==================
+x = _lmcode_ schema="host.json";
+pair(<<A, <<~B);
+end _lmcode_
+A
+inside
+  B
+end _lmcode_
+
+
+---
+
+(source_file
+  (data_block_statement
+    (assignment_expression
+      (identifier)
+      (marker_expression
+        (block_marker)
+        (block_option
+          (identifier)
+          (plain_string))))
+    (lmcode_body)
+    (block_closer)))
+
+==================
+planned descriptor
+==================
+s = load_schema(cli="tool" install="github:org/tool@latest");
+
+---
+
+(source_file
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (load_schema_expression
+        (schema_clause
+          (plain_string))
+        (schema_clause
+          (plain_string))))))
+
+==================
+planned file descriptor
+==================
+s = load_schema(schema="host.json");
+
+---
+
+(source_file
+  (expression_statement
+    (assignment_expression
+      (identifier)
+      (load_schema_expression
+        (schema_clause
+          (plain_string))))))
+
+==================
+planned block handle
+==================
+x = _lmcode_ s out=ARGV[0]+".dslb";
+$return = null;
+end _lmcode_
+
+
+---
+
+(source_file
+  (data_block_statement
+    (assignment_expression
+      (identifier)
+      (marker_expression
+        (block_marker)
+        (identifier)
+        (block_option
+          (identifier)
+          (binary_expression
+            (index_expression
+              (identifier)
+              (number))
+            (plain_string)))))
+    (lmcode_body)
+    (block_closer)))
+
+==================
+block in function
+==================
+fn f() {
+return _json_;
+{}
+end _json_
+}
+
+---
+
+(source_file
+  (function_declaration
+    (identifier)
+    (parameter_list)
+    (block
+      (data_block_statement
+        (marker_expression
+          (block_marker))
+        (data_body)
+        (block_closer)))))
+
+==================
+multiple arguments and marker
+==================
+x = f(1, _json_, "last");
+{}
+end _json_
+
+
+---
+
+(source_file
+  (data_block_statement
+    (assignment_expression
+      (identifier)
+      (call_expression
+        (identifier)
+        (argument_list
+          (number)
+          (marker_expression
+            (block_marker))
+          (plain_string))))
+    (data_body)
+    (block_closer)))

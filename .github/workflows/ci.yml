@@ -4,32 +4,34 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
-  parse:
+  grammar:
     strategy:
-      matrix: { os: [ubuntu-24.04, macos-14] }
+      matrix:
+        os: [ubuntu-24.04, macos-14]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 24 }
-      - name: Install tree-sitter CLI
-        run: npm install --prefix "$RUNNER_TEMP/tree-sitter" tree-sitter-cli@0.27.1
-      - name: Generate and test grammar
-        env:
-          TREE_SITTER: ${{ runner.temp }}/tree-sitter/node_modules/.bin/tree-sitter
+        with:
+          node-version: 24
+      - name: Install private CLI
+        run: |
+          npm install --prefix "$RUNNER_TEMP/tree-sitter" tree-sitter-cli@0.27.1
+          echo "TREE_SITTER=$RUNNER_TEMP/tree-sitter/node_modules/.bin/tree-sitter" >> "$GITHUB_ENV"
+          echo "TREE_SITTER_LIB=$RUNNER_TEMP/lmscript.so" >> "$GITHUB_ENV"
+      - name: Generated parser freshness
         run: |
           "$TREE_SITTER" generate
-          "$TREE_SITTER" test
-          "$TREE_SITTER" build --output "$RUNNER_TEMP/lmscript.so"
-      - name: Fetch pinned language corpora
+          git diff --exit-code -- src/parser.c src/grammar.json src/node-types.json
+      - name: Corpus and contract tests
         run: |
-          git clone --depth 1 https://github.com/lmctlhq/lmctl-mono.git "$RUNNER_TEMP/lmctl-mono"
-          git clone --depth 1 https://github.com/lmctlhq/skills-scripts.git "$RUNNER_TEMP/skills-scripts"
-      - name: Zero-error conformance
-        env:
-          TREE_SITTER: ${{ runner.temp }}/tree-sitter/node_modules/.bin/tree-sitter
-          TREE_SITTER_LIB: ${{ runner.temp }}/lmscript.so
-          MONO_ROOT: ${{ runner.temp }}/lmctl-mono
-          SKILLS_ROOT: ${{ runner.temp }}/skills-scripts
-        run: node scripts/conformance.mjs
+          "$TREE_SITTER" test
+          "$TREE_SITTER" build --output "$TREE_SITTER_LIB"
+          node --test test/contracts.mjs
+          node scripts/conformance-selftest.mjs
+          node scripts/conformance.mjs
+      - name: Required failing controls
+        run: node scripts/mutate.mjs

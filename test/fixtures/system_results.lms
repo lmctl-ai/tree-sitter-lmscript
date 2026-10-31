@@ -1,0 +1,4 @@
+# Independent reproducer of the call-vs-command lexical boundary.
+a = system(["echo", "ok"]);
+b = system(["echo", "ok"], {check:true});
+system echo done;

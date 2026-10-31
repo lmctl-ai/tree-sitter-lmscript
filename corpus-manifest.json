@@ -1,269 +1,607 @@
 {
-  "mono": "/home/mma/repos/lmcode-team/lmctl-mono-v6entries",
-  "skills": "/home/mma/repos/skills-scripts",
+  "mode": "live (private source text not included)",
+  "sources": {
+    "mono": {
+      "commit": "a9df5a8b793ddc90f572d5c5be5800ba8dc448dc"
+    },
+    "skills_scripts": {
+      "commit": "2a44d043712337c33917956a78665d9506396236"
+    }
+  },
   "files": [
     {
-      "file": "../../skills-scripts/lms-adhoc/ask.lms",
+      "source": "mono",
+      "path": "lmscript/examples/01_dsl_heredoc.lms",
+      "sha256": "62c55f82ae1bd114470a00f5ae16575a46cf824be4c27cc7dfce6437299e5b65"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/agent_fanout.lms",
+      "sha256": "e093709447f4ddf300b8c2110ba0da7907367dd96f85606838d4e82c21774561"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/agent_observe.lms",
+      "sha256": "0a1c72b21dba43dc2a708f0358cbd038457e36e3a7c986bfd46aecb1143c9b6a"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/agent_prompt.lms",
+      "sha256": "f5dc8eef33f4aa3fc1b78212a053939d16a0e15cff875fd0a351a201aa6b1221"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/agent_reply_helpers.lms",
+      "sha256": "0202343a5fd05ab5ca72a735848f745a3f41afa78763aa13c2a93d4277c0caf2"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/agent_teamfile.lms",
+      "sha256": "4b44df1c5c165ad9ec801cd2af44e3d162e63bd930eb424fa8ba8c59b303872c"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/agents_offline_mock.lms",
+      "sha256": "95264c7e92cfbda1e047ae509c9d427fde5849a61de086fee5714033e765cd56"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/argv.lms",
+      "sha256": "75cd9f570bb619e1088db076ad340bbc77b946aa0cb6a51fbf40ba6ef4b304e9"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/batchscript.lms",
+      "sha256": "6cd0b34e5b31789d822615d4dad982f13636d544ec68b2b1595341088d000f75"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/book_greetings.lms",
+      "sha256": "1523fe247a4e1fcbd9ebfe44e979a6a1c58540b9ceb5ff77d1637206cf4fe48e"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/book_live.lms",
+      "sha256": "625fd2c71480d18d4283e7c2ec28e927ad72ad0de66b663e78574bb84c601109"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/checking_and_dry_run.lms",
+      "sha256": "d954637f75b2e65955189ff3fddd3ca568ca10400b636009c61d3b939819c343"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/cmd_blocks.lms",
+      "sha256": "c60c0e632b516461bb0ea06e20c4436f1746e0766178e7a63f30b0d2220bbbc0"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/commands.lms",
+      "sha256": "e4603303bce6a14a8dc044e0c9c0f4c6e7d3af9214d7c53ce747d724b4591608"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/config_consts.lms",
+      "sha256": "235d163a191067f957da5280a31157f02cce23e458b80a7a575a436817534f06"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/control_flow.lms",
+      "sha256": "f5ac354eb23db3378633b6903fafe589216550e23c22c7b457be78e3760169d7"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/data_blocks_csv_json.lms",
+      "sha256": "3c6fad94d17a2c3b067ec6a8a55913531b037b24f7f2e079ee82f6336a564d02"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/data_blocks_toml_props.lms",
+      "sha256": "b8c16cd580628acccf2c37c7ca2614b76122223c87d5ace480bac856d22b7452"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/env_and_time.lms",
+      "sha256": "f1c8247aa34c11051be1fedb7e0ff9d29ff370bc5f4a90efa2f5c0439b5d9b9d"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/errors_and_exit.lms",
+      "sha256": "9c004903d799bee17cd854954ec1606c5797774f08098d89b07069d421aeecca"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/errors_and_exit_failing.lms",
+      "sha256": "30550ecf42e9c41fbe3754a26d2fad536df44db7500b689d6775a734c5c22ad9"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/expand.lms",
+      "sha256": "a0d10f1ab5c4cbfdca13028c3e69a4a153ab66dffd8a991babadd7af7898c5e2"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/files.lms",
+      "sha256": "6cc40cd59970eb6126024f4aa9ce9aa4461413ea7c11f1593b984b8539d4873c"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/files_more.lms",
+      "sha256": "14e2110f865bd5a7b337d939c4138d2b02ef6ce20f611a13f042a9a4f0f9e4e4"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/formatting.lms",
+      "sha256": "0390d65effcc066883417b9efe405e478c995d08d798ca0914d0951c682a5dea"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/functions.lms",
+      "sha256": "99519eaef2b4420717d227b4fe76eee528ade4609fbc82b7a96e2a70dc26d140"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/git2_status.lms",
+      "sha256": "91aff835004114fa34bf4759c20ecbfa029464e9e7341b0276fc98e14e535b80"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/git_summary.lms",
+      "sha256": "5436452b2eb564d1c727e9c0d025a016323924a63ce4c651011d73f48689eaf1"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/github_query.lms",
+      "sha256": "301884d34a60b8d98c1092743f11f3722e42862f2dd86e3c963bd77b90c975e5"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/graphql_query.lms",
+      "sha256": "a8b07fb19fa896adc50f6b289198107d62a82d620e7beb085ad35df8d403920b"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/hello.lms",
+      "sha256": "d492ad3ab96effccb23f034f639e738e9f3d13a1222e5636cfd61bb735daf917"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/imports_and_packages.lms",
+      "sha256": "776c73d31f3c5fd77eb13e0dc105e6f5a071af5a6d3747e578a250c7d6054eef"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/inline_data.lms",
+      "sha256": "e9d6cad0a35a3d9ef5ea2ad15714b5bd96ba182afb8c2b2f2a41d7990dbb24dd"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/lists.lms",
+      "sha256": "64d070f87e6730d45697165d7a5d0e4e0f7469f434f89cf4a75b155a33d8f332"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/maps_and_json.lms",
+      "sha256": "e44f079e4e573cc8bc5f5c5269b1375be13eb773ac420365459f0a79ad0222dd"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/math_and_predicates.lms",
+      "sha256": "461d06ad1ae4fd6d4e52747258cf5b151d809af2805b3dfe400d3d75404cd94f"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/parallel_map.lms",
+      "sha256": "9949556b771e2cf40c69742abb26282fa7aee32da86a355073acc2a84e2fdfc5"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/parallel_sync.lms",
+      "sha256": "7c908c74fb2ff9c5c9a21ff96492ace5c0db6b649108c3a6f3fe7a186fc2294a"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/path_literals.lms",
+      "sha256": "a94557175a35b7078a2a00560b5a1d3bf8a2877b0553e72e593bb8e99484cec1"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/properties_and_pref.lms",
+      "sha256": "2256674220836a3f7955ddd1c85c4cf92d5edb50a5b0a168e9108525dd300e50"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/recover_steps.lms",
+      "sha256": "55a0755de680e7309b97c3a832007388ef19fde6905b495f68b51af106a4ef52"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/regex.lms",
+      "sha256": "55868546eabf5e4eea3aaa52c8594223935da078b67fdd1f3e245a72eaf0945f"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/resource_batch.lms",
+      "sha256": "b01598fe790d7e5c33fedbfd57119e8a95f47e30b9d488c384a93c9638bb9137"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/resource_escape.lms",
+      "sha256": "e9144bda3c71cb4ea85d73f316e205763049e9fe5393dee8a500ff3ce96fadbe"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/resource_signal.lms",
+      "sha256": "c67ee8c3dc434adb0a392aa0653941facc419e38691894e7b3cdefa785ababaf"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/reverse_templates.lms",
+      "sha256": "124e2b0f79636e37b618b6944653fcf497c680b37fd79500cc1a50ab5aa0b2fd"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/run_script.lms",
+      "sha256": "58e1c995e172841c749eae5b300d7ae4c601982de199c11859c1c28bc56e6459"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/run_script_child.lms",
+      "sha256": "f9352205482bb07ae56a57d8bb9f549955f54e5a54618956a925be6403d71fec"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/strict_access_methods.lms",
+      "sha256": "9b1657e76e282d7d70e9ccb277c6614a08cc36550c45a1392197cf8babacf9c5"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/strings.lms",
+      "sha256": "1f0d9a6957df60fc31031836393e2c517fb57b87bc1cc91cddbeba96ad91205b"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/system_results.lms",
+      "sha256": "09330d8a0193dc0a69b0971bd61e332ccaad70e1415b9cd6b341518b0cb8ac91"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/trace.lms",
+      "sha256": "ea070dd4028a58a39f3dd76651ac96a89a2d0e1d73698c8fc5fdcc5718679bd0"
+    },
+    {
+      "source": "mono",
+      "path": "lmscript/examples/values_and_scope.lms",
+      "sha256": "c7d0e20fb97283461ab4fd9dd12dc200314513677d295b58c4924abd2297d037"
+    },
+    {
+      "source": "skills_scripts",
+      "path": "lms-adhoc/ask.lms",
       "sha256": "509aa0687048c0004b65bf64914dac4f937ed1313b82878c3ee356ca6efc9fe4"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/command_coverage.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/command_coverage.lms",
       "sha256": "e2605dea78cab9d523d8191900c8a77f8e13647a120b6f1a2da2f632bc44c9f4"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/doc_cli_audit.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/doc_cli_audit.lms",
       "sha256": "b62af3b5ffa2919544b7109c3756549cd899221b1ca1e2d562c1ae0dbf2bdfe6"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/keeper.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/keeper.lms",
       "sha256": "8b07387a5bdec4d034880cac5b62fe8a2227ab30a368c426a965bb95efd5a443"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/lmbee_triage.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/lmbee_triage.lms",
       "sha256": "8bf773ba37c200305bdcf4ca4bf5f0209463ba71100fdedef7f830eb704decda"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/lmbee_triage_impl.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/lmbee_triage_impl.lms",
       "sha256": "ed3cbf3532edacfbe234f0145e6d632dd2f677d0badfb74e5ae70c057d63e20f"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/nudge-loop.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/nudge-loop.lms",
       "sha256": "3a196dbc5e6b8dd0806c2aef6ff8a7951cae5368fc57c0758220976a58dde2e2"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/onboard1.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/onboard1.lms",
       "sha256": "8393c0a5af10e56d445b2929b383e6e0dbc622f2a07217c8a2360af82e5fc5c7"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/onboard1_sample.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/onboard1_sample.lms",
       "sha256": "2f84c2b1cfb788ded29ac5ccae00a0d7ee3656c48f51e2ba49f3cbd89204a08f"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/onboard3.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/onboard3.lms",
       "sha256": "83ff66c8e50b37f4c1b033a767bf1d1d73c4cef26bb687c9d07d569ef34a3ec2"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/onboard3_sample.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/onboard3_sample.lms",
       "sha256": "cfbf6215c7ce6e8dfd5b689c412a56189d7868e1aa1838126a661b128865844e"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/price-coverage.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/price-coverage.lms",
       "sha256": "202d72e507d1c5741cd5f94dc35febf80d67b3b5a7e80aaff3e564d1dbca396b"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/recover.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/recover.lms",
       "sha256": "5acbc46aa6e8d3e4555be8b1c0b052de749e9e7b8c3eb4817950a2ce9477e4c2"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/recovery_discriminates.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/recovery_discriminates.lms",
       "sha256": "88ac6efac763ec54668126acf79ee8ff765606c291a8256fbda2bc2310ffea86"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/release_test.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/release_test.lms",
       "sha256": "cca4888f50a4bd20ab5a5bbde8e39a334b746c919573a25c1a17cee461dc1e25"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/repo_clone_exec.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/repo_clone_exec.lms",
       "sha256": "4eb13b885a67cad84b67381934c12ea6d16409bfb1435f9bd50e189df18514b6"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/repo_clone_plan.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/repo_clone_plan.lms",
       "sha256": "8732f870a91ef2e929a226faa7a245508ac01d0e056d584b9daf904e77192e93"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/repo_migration_plan.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/repo_migration_plan.lms",
       "sha256": "4b01e53d3702d3dbed5cb7e49813007833de707aa6ba5f58e00cffbfeb7623da"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/retire_team_opus.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/retire_team_opus.lms",
       "sha256": "dabaa470362ee0acaec6cf642564442359306296e0b563bd29ee01e5a6329df5"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/savescript_targets.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/savescript_targets.lms",
       "sha256": "c0966f4ee58d3b9e5e1dd39e1764f4c4a109b2b42331b6c4dca58437a8f902b8"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/scan-example.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/scan-example.lms",
       "sha256": "91446ea8f5b89758eca72429cfe85ee746e3653f31e06a536245012ede853d8a"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/sessions.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/sessions.lms",
       "sha256": "b7755103aa6379015d39b2a97a5332aae93f68634e44b8c322899ae4797de726"
     },
     {
-      "file": "../../skills-scripts/lms-adhoc/work.lms",
+      "source": "skills_scripts",
+      "path": "lms-adhoc/work.lms",
       "sha256": "98bdd19779c7c3e3f1e159df33ff5276b9a4f7a892c5291f12af0741f058f983"
     },
     {
-      "file": "../../skills-scripts/lms-driven/audit_public.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/audit_public.lms",
       "sha256": "1f73184936d9dbfb903d2f21dbebfa8958d62b60e35115f8b87655c5f6cdcb90"
     },
     {
-      "file": "../../skills-scripts/lms-driven/awsspot_release_test.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/awsspot_release_test.lms",
       "sha256": "ef2e1c2545b27443411a9836ccea392b1a16c57a4940be4ff6003c8eab74ecb8"
     },
     {
-      "file": "../../skills-scripts/lms-driven/brainstorm.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/brainstorm.lms",
       "sha256": "51280ce30f4cdf06c46ace657d79e2c0f13d2b1ea269e24bee397a46db656a36"
     },
     {
-      "file": "../../skills-scripts/lms-driven/burn_agy.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/burn_agy.lms",
       "sha256": "27d2785d3f88ed6c768c462482f391b59c39c9a00373c9d34739a91a090db8cf"
     },
     {
-      "file": "../../skills-scripts/lms-driven/decide_by_vote.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/decide_by_vote.lms",
       "sha256": "dfb170aaa5abb0c9d9284b346d8fe48724c1be6ee57e0158f282511dc829b4c5"
     },
     {
-      "file": "../../skills-scripts/lms-driven/do_task.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/do_task.lms",
       "sha256": "2d40f4fc87e257add1c6368aea3dfa8ca101f390035b60befe8661490f9c5328"
     },
     {
-      "file": "../../skills-scripts/lms-driven/doc_claim_audit.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/doc_claim_audit.lms",
       "sha256": "d3aca5dbedb26dc3d56a1b3978c946845f416e877ee8afe7867817c0e2098dcf"
     },
     {
-      "file": "../../skills-scripts/lms-driven/doc_organize.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/doc_organize.lms",
       "sha256": "7c6fdeb57c98d41984e42bd4256df73b122ed6eaad7f3930d925b710e9acdc2b"
     },
     {
-      "file": "../../skills-scripts/lms-driven/doc_sweep_checklist.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/doc_sweep_checklist.lms",
       "sha256": "f86e601dca097c3de4f3698dd72dda9453425a0d07270bdcae18f45aad0fa45d"
     },
     {
-      "file": "../../skills-scripts/lms-driven/enhancement_task.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/enhancement_task.lms",
       "sha256": "499ae5d79fe881b9a96b530a80da10ea540dd66352f373e1d82a1e0369145f9c"
     },
     {
-      "file": "../../skills-scripts/lms-driven/issue_research_solve.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/issue_research_solve.lms",
       "sha256": "e06f1f02257f2c7f2bd784b5b81b7e7f8f2438fcbbe8889eb08347ea48856e1e"
     },
     {
-      "file": "../../skills-scripts/lms-driven/onboard_doc.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/onboard_doc.lms",
       "sha256": "b1e68705b18f9b4c0bfc69b1f111926b3a18977cbdc4889747eecfbd32e8168a"
     },
     {
-      "file": "../../skills-scripts/lms-driven/onboard_fleet.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/onboard_fleet.lms",
       "sha256": "45bdb976ff4f1670fdd37018bdf81d034f85ab16ac0b5daa4498f63ab27a18e6"
     },
     {
-      "file": "../../skills-scripts/lms-driven/plan_seed.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/plan_seed.lms",
       "sha256": "7124cb22e97d81416e1ad26c70fd215874a2cc1f6e5b4ce90d4359a9b99e9b64"
     },
     {
-      "file": "../../skills-scripts/lms-driven/program_phase.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/program_phase.lms",
       "sha256": "19be351c8cc2aa8f631a86e86f27d95f6f858be90c13f16bf2d692f8922e93ec"
     },
     {
-      "file": "../../skills-scripts/lms-driven/program_stage.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/program_stage.lms",
       "sha256": "798abb57583f511d181efaebe273eb33a57beeb0bf11a0fa83895ad429e89102"
     },
     {
-      "file": "../../skills-scripts/lms-driven/push_gate.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/push_gate.lms",
       "sha256": "d82c623b88b5c4e8f651684a7d35f4ea8ee6fd13930e303afd8e3481eed556c9"
     },
     {
-      "file": "../../skills-scripts/lms-driven/release_pipeline.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/release_pipeline.lms",
       "sha256": "e5257fbdc51cb44c4030a608ed9a9ec7186dfa642de4c093ce6bf6d0593fdb22"
     },
     {
-      "file": "../../skills-scripts/lms-driven/repo_busy.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/repo_busy.lms",
       "sha256": "6d53af9a455ea42afbe4920d30f093c9a1db1cfb4cc9b4e2117540f746dccc62"
     },
     {
-      "file": "../../skills-scripts/lms-driven/research_one.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/research_one.lms",
       "sha256": "845e3543548ba1572c0e98dda8add1a0d541af4447511dfc735824d76b68c938"
     },
     {
-      "file": "../../skills-scripts/lms-driven/review_loop.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/review_loop.lms",
       "sha256": "053f9c1394dcff8d2923c060dbf84313e73364e3c0060bdfea832946d8d7869f"
     },
     {
-      "file": "../../skills-scripts/lms-driven/score_audits.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/score_audits.lms",
       "sha256": "b0dad376cdf859776b7284b0f0fd1f3c88498d3fd0c827a61ef51b716b050eb5"
     },
     {
-      "file": "../../skills-scripts/lms-driven/secret_scan.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/secret_scan.lms",
       "sha256": "000194d972dbf09869415e15769259553461359e9d89c261c729edd037d5fd28"
     },
     {
-      "file": "../../skills-scripts/lms-driven/seed_matrix.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/seed_matrix.lms",
       "sha256": "324253ef18b07bb31d1cb63438f6880980a18edf0a48b5d7b42593044083bb7b"
     },
     {
-      "file": "../../skills-scripts/lms-driven/session_state.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/session_state.lms",
       "sha256": "c79ef3afc29c24b93490a7a501aaf1e975207947690c4deda367bf9882726db0"
     },
     {
-      "file": "../../skills-scripts/lms-driven/spec_runtime.lms",
+      "source": "skills_scripts",
+      "path": "lms-driven/spec_runtime.lms",
       "sha256": "ce6eb498373ba82aae725f1c4f23c00d87805c787bb5cc4bba926e51c61e4f0f"
     },
     {
-      "file": "../../skills-scripts/lms-lib/agent-lib.lms",
+      "source": "skills_scripts",
+      "path": "lms-lib/agent-lib.lms",
       "sha256": "9410e3be1f4299ac1e6c54bb497417a42f18e6c78928f3b205b8775a5027904c"
     },
     {
-      "file": "../../skills-scripts/lms-lib/git-lib.lms",
+      "source": "skills_scripts",
+      "path": "lms-lib/git-lib.lms",
       "sha256": "00bb73cbec66d026d067da7a796021e98b4e2f0f81617f3db4f76447241828f1"
     },
     {
-      "file": "../../skills-scripts/lms-lib/lmctl-lib.lms",
+      "source": "skills_scripts",
+      "path": "lms-lib/lmctl-lib.lms",
       "sha256": "c80c534264db384ed62a84b8db54bd8faf5d52fcecb8dea2fa49b86e663a6332"
     },
     {
-      "file": "../../skills-scripts/lms-lib/onboard-lib.lms",
+      "source": "skills_scripts",
+      "path": "lms-lib/onboard-lib.lms",
       "sha256": "6a49f02076b33b06e5494cfad2b366c9fd6736d731a4beaea383cef75340e168"
     },
     {
-      "file": "../../skills-scripts/lms-lib/spec-runtime-lib.lms",
+      "source": "skills_scripts",
+      "path": "lms-lib/spec-runtime-lib.lms",
       "sha256": "8305e5cf1fea98c9d053b61fc60497bad72a99e3979b6ae5cb66f2ef950151f8"
     },
     {
-      "file": "../../skills-scripts/lms-lib/teamfile-lib.lms",
+      "source": "skills_scripts",
+      "path": "lms-lib/teamfile-lib.lms",
       "sha256": "c1c9225d7510b1a431322919707213ef0b122f1a2698480d875cd18fc32b2f6d"
     },
     {
-      "file": "../../skills-scripts/lms-lib/workflow-lib.lms",
+      "source": "skills_scripts",
+      "path": "lms-lib/workflow-lib.lms",
       "sha256": "2b53621cfb45c290d66fd52a57b1d4c1a6f8c1db685edb7875eb16df8aa131c5"
     },
     {
-      "file": "../../skills-scripts/quickrun/globals.lms",
+      "source": "skills_scripts",
+      "path": "quickrun/globals.lms",
       "sha256": "759e6823e7ce82f03f6bb4dfe2a095deb8d27fc09d9bcfbcf1f252a12595968c"
     },
     {
-      "file": "../../skills-scripts/quickrun/inspect.lms",
+      "source": "skills_scripts",
+      "path": "quickrun/inspect.lms",
       "sha256": "0b22859798a8d547c8447721fb9a10900440f6dc7670faefc1502756e66280b9"
     },
     {
-      "file": "../../skills-scripts/tests/onboard-teamfile-driver.lms",
+      "source": "skills_scripts",
+      "path": "tests/onboard-teamfile-driver.lms",
       "sha256": "62ebedf509ddd9dcd1349bd9c13e0f493c29145cae402665e58dd9a83de0889f"
     },
     {
-      "file": "../../skills-scripts/tests/resume-contract.lms",
+      "source": "skills_scripts",
+      "path": "tests/resume-contract.lms",
       "sha256": "96f19502aa0e250bb1040fc0dad6ac7cd303830ba4d82e51856bf7cd20853773"
     },
     {
-      "file": "../../skills-scripts/tests/spec-runtime-contract.lms",
+      "source": "skills_scripts",
+      "path": "tests/spec-runtime-contract.lms",
       "sha256": "8a4db8c773397adccc2c74a5b53eefe08b35d9960d29938617761a68152cfc01"
     },
     {
-      "file": "../../skills-scripts/tests/spec-runtime-review-contract.lms",
+      "source": "skills_scripts",
+      "path": "tests/spec-runtime-review-contract.lms",
       "sha256": "eae43cc28112cbf9848f7933a20c2668f441af07485ec280847f7c0a4bd2e8b6"
     },
     {
-      "file": "../../skills-scripts/tests/stopgap-contract.lms",
+      "source": "skills_scripts",
+      "path": "tests/stopgap-contract.lms",
       "sha256": "f9d7c9c0060b05390f19774c4779d6e32368cc4bb9683a436af22998e7c239d4"
     },
     {
-      "file": "../../skills-scripts/tests/system-argv-adhoc-probes.lms",
+      "source": "skills_scripts",
+      "path": "tests/system-argv-adhoc-probes.lms",
       "sha256": "89c2cee8797425ba8bd1a9a50496c4b8bf1c7da9639910b96695ad2201d5a7d9"
     },
     {
-      "file": "../../skills-scripts/tests/system-argv-driven-probes.lms",
+      "source": "skills_scripts",
+      "path": "tests/system-argv-driven-probes.lms",
       "sha256": "283e4527abf9d585c2f64c57859a3c0125be375fff8a0d8f4713f95590777c4d"
     },
     {
-      "file": "../../skills-scripts/tests/workflow-contract.lms",
+      "source": "skills_scripts",
+      "path": "tests/workflow-contract.lms",
       "sha256": "5175638ce9fdd1915dbd57ac366414dfa13548a1a5e109703d60a31f2221d048"
     }
   ]

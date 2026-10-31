@@ -1,0 +1,4 @@
+x = _csv_ header=true;
+a,b
+1,2
+end _csv_

@@ -1,0 +1,25 @@
+{
+  "grammars": [
+    {
+      "name": "lmscript",
+      "camelcase": "Lmscript",
+      "scope": "source.lms",
+      "path": ".",
+      "file-types": [
+        "lms"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Lattice Systems LLC"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/lmctl-ai/tree-sitter-lmscript"
+    }
+  }
+}

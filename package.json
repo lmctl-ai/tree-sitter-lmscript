@@ -1,0 +1,16 @@
+{
+  "name": "tree-sitter-lmscript",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for LMScript",
+  "license": "MIT",
+  "type": "commonjs",
+  "repository": "https://github.com/lmctl-ai/tree-sitter-lmscript",
+  "scripts": {
+    "test": "node scripts/test.mjs"
+  },
+  "files": [
+    "grammar.js",
+    "tree-sitter.json",
+    "src/"
+  ]
+}
