@@ -25,10 +25,13 @@ jobs:
       - name: Generated parser freshness
         run: |
           "$TREE_SITTER" generate
-          git diff --exit-code -- src/parser.c src/grammar.json src/node-types.json
+          "$TREE_SITTER" generate lmcode-body/grammar.js -o lmcode-body/src
+          git diff --exit-code -- src/parser.c src/grammar.json src/node-types.json lmcode-body/src
       - name: Corpus and contract tests
         run: |
           "$TREE_SITTER" test
+          "$TREE_SITTER" test --grammar-path lmcode-body
+          node --test test/body-layer.mjs
           "$TREE_SITTER" build --output "$TREE_SITTER_LIB"
           node --test test/contracts.mjs
           node scripts/conformance-selftest.mjs

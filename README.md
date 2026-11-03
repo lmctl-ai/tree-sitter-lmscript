@@ -68,3 +68,18 @@ process result is runtime semantics; reverse templates are ordinary calls.
 See [DIVERGENCES.md](DIVERGENCES.md). The separately planned S3 differential
 gate (500+ seeded documents against the real checker) is not implemented in S1.
 Do not claim runtime equivalence or production readiness before it lands.
+
+## Lmscript-owned lmcode body templates
+
+`lmcode_body` stays an opaque node in the outer parser. `queries/injections.scm`
+selects the companion `lmscript_lmcode` parser for that region, rather than teaching
+the standalone lmcode grammar higher-level syntax. The companion inherits a
+pinned ordinary lmcode grammar and adds the single-line formatted-string rules;
+its `lmscript_lmcode_body` node records the owning context for analysis tools.
+Standalone lmcode still rejects `f"..."`. Lmscript's compiler expands body templates
+into ordinary source before invoking the inner compiler; no VM change is involved.
+
+`npm test` generates/tests both parsers, verifies the pinned base/scanner, checks
+formatting refusals, and proves removing the formatting branch breaks a real body.
+The vendored base revision and digests are in `lmcode-body/vendor/UPSTREAM.json`;
+the scanner differs only in its exported language-symbol prefix.

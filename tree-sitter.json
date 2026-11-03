@@ -8,6 +8,13 @@
       "file-types": [
         "lms"
       ]
+    },
+    {
+      "name": "lmscript_lmcode",
+      "camelcase": "LmscriptLmcode",
+      "scope": "source.lmscript.lmcode-body",
+      "path": "lmcode-body",
+      "injection-regex": "^lmscript_lmcode$"
     }
   ],
   "metadata": {

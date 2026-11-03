@@ -11,6 +11,8 @@
   "files": [
     "grammar.js",
     "tree-sitter.json",
-    "src/"
+    "src/",
+    "queries/",
+    "lmcode-body/"
   ]
 }

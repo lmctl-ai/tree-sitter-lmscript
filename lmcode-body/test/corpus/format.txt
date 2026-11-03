@@ -1,0 +1,60 @@
+==================
+formatted-string-nested-expression
+==================
+let text=f"value={format(user.name, clamp(score, 0, 10))}";
+---
+
+(source_file
+  (lmscript_lmcode_body
+    (let_statement
+      (identifier)
+      (formatted_string
+        (formatted_field
+          (formatted_call_expression
+            (identifier)
+            (formatted_argument_list
+              (formatted_member_expression
+                (identifier)
+                (identifier))
+              (formatted_call_expression
+                (identifier)
+                (formatted_argument_list
+                  (identifier)
+                  (int_literal)
+                  (int_literal))))))))
+    (end_of_file)))
+
+==================
+formatted-string-escapes-and-literal-braces
+==================
+let text=f"{{literal}} {name}\n{count}";
+---
+
+(source_file
+  (lmscript_lmcode_body
+    (let_statement
+      (identifier)
+      (formatted_string
+        (formatted_field
+          (identifier))
+        (formatted_field
+          (identifier))))
+    (end_of_file)))
+
+==================
+formatted-string-outer-splice-field
+==================
+let text=f"value={${field}}";
+---
+
+(source_file
+  (lmscript_lmcode_body
+    (let_statement
+      (identifier)
+      (formatted_string
+        (formatted_field
+          (splice
+            (splice_start)
+            (identifier)
+            (splice_end)))))
+    (end_of_file)))

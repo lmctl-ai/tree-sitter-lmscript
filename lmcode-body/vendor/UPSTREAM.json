@@ -1,0 +1,7 @@
+{
+  "repo": "lmctl-ai/tree-sitter-lmcode",
+  "commit": "f7937605db4a07464a333d4ca900090b09baa44a",
+  "grammar_sha256": "bff6251ed78f0a0189b806ea1eb437b7d3bd28c4a946e182362378e65803dc35",
+  "scanner_sha256": "960946bf6764261c0cab85c53a2db0f7f44328ce954fe12a1e65bfd6da3613bd",
+  "scanner_transform": "exported scanner symbol prefix only"
+}
